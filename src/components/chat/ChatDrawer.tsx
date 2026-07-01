@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 import {
     Box,
@@ -32,6 +33,9 @@ export default function ChatDrawer() {
 
     const bottomRef = useRef<HTMLDivElement>(null);
 
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
     useEffect(() => {
         bottomRef.current?.scrollIntoView({
             behavior: "smooth",
@@ -61,7 +65,7 @@ export default function ChatDrawer() {
             slotProps={{
                 paper: {
                     sx: {
-                        width: 550,
+                        width: isMobile ? "100%" : 520,
                     },
                 },
             }}
@@ -184,9 +188,14 @@ export default function ChatDrawer() {
 
                             {/* Result */}
 
-                            <ResultTable
-                                data={item.data}
-                            />
+                            <Box
+                                sx={{
+                                    width: "100%",
+                                    overflowX: "auto",
+                                }}
+                            >
+                                <ResultTable data={item.data} />
+                            </Box>
 
                             <Divider sx={{ mt: 3 }} />
                         </Box>

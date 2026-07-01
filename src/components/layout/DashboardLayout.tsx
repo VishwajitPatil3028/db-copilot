@@ -12,6 +12,7 @@ export default function DashboardLayout() {
         <Box
             sx={{
                 minHeight: "100vh",
+                bgcolor: "#f5f7fb",
             }}
         >
             <Header />
@@ -19,8 +20,13 @@ export default function DashboardLayout() {
             <Navigation />
 
             <Box
+                component="main"
                 sx={{
-                    p: 3,
+                    p: {
+                        xs: 2,
+                        sm: 3,
+                        md: 4,
+                    },
                 }}
             >
                 <Outlet />

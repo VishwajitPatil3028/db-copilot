@@ -40,6 +40,7 @@ export default function Navigation() {
         value={value}
         variant="scrollable"
         scrollButtons="auto"
+        allowScrollButtonsMobile
       >
         {pages.map((page) => (
           <Tab

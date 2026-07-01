@@ -48,29 +48,39 @@ export default function ResultTable({ data }: Props) {
                 Query Result ({data.length} rows)
             </Typography>
 
-            <MaterialReactTable
-                columns={columns}
-                data={data}
-                enableDensityToggle={false}
-                enableColumnOrdering
-                enableColumnFilters
-                enableSorting
-                enablePagination
-                enableFullScreenToggle
-                enableHiding
-                enableStickyHeader
-                initialState={{
-                    pagination: {
-                        pageIndex: 0,
-                        pageSize: 10,
-                    },
+            <Box
+                sx={{
+                    width: "100%",
+                    overflowX: "auto",
                 }}
-                muiTableContainerProps={{
-                    sx: {
-                        maxHeight: 400,
-                    },
-                }}
-            />
+            >
+
+                <MaterialReactTable
+                    columns={columns}
+                    data={data}
+                    layoutMode="grid"
+                    enableColumnResizing
+                    enableDensityToggle={false}
+                    enableColumnOrdering
+                    enableColumnFilters
+                    enableSorting
+                    enablePagination
+                    enableFullScreenToggle
+                    enableHiding
+                    enableStickyHeader
+                    initialState={{
+                        pagination: {
+                            pageIndex: 0,
+                            pageSize: 10,
+                        },
+                    }}
+                    muiTableContainerProps={{
+                        sx: {
+                            maxHeight: 400,
+                        },
+                    }}
+                />
+            </Box>
         </Box>
     );
 }

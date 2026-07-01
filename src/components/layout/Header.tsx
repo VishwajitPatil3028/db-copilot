@@ -12,7 +12,13 @@ export default function Header() {
             color="inherit"
             elevation={1}
         >
-            <Toolbar>
+            <Toolbar
+                sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 2,
+                }}
+            >
                 <Typography
                     variant="h5"
                     sx={{
